@@ -1,6 +1,7 @@
 import subprocess
 import time
 
+# лого
 print('''
 ///   ///   ////    ///  /    ///    ///    ///////   ///
  /// /// //////    ///  //   ///    ///    ///       ///
@@ -8,12 +9,15 @@ print('''
    /      ///     ///    ///      ///    ///       ///
 ''')
 
+# забей
 processes = [] 
 
+# переменные
 num = int(input('Введите количество фейковых сетей: '))
 name = input('Введите название фейковых сетей: ')
 wlanname = input('Введите название wlan: ')
 
+# скрипт для создания mon<N>
 result = subprocess.run(
     ['./bash.sh', str(num), name, wlanname],
     stdout=subprocess.PIPE,
@@ -24,9 +28,12 @@ result = subprocess.run(
 print("Вывод скрипта:")
 print(result.stdout)
 
+# переменные
 mon = 0
 ch = 1
 mac = '00:11:22:33:44:01'
+
+# цикл для создание фейк сетей с разными именами, mac адресом и постоянно меняющим каналом всех фейк сетей(Все сети с wpa защитой)
 
 for i in range(num):
     namestr = f"{name}({i})"
@@ -50,7 +57,9 @@ for i in range(num):
     proc = subprocess.Popen(cmd)
     processes.append(proc)
 
-print('Все сети запущены. Нажмите Ctrl+C, чтобы остановить скрипт и все сети.')
+print('Все сети запущены. Нажмите Ctrl+C, чтобы выключить скрипт и все сети.')
+
+# остановка скрипта и сетей, а также вечное выполнение команды airdump-ng
 
 try:
     while True:
