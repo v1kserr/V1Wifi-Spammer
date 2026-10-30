@@ -30,6 +30,6 @@ sudo airbase-ng -e "FreeWiFi_3" -c 11 -a 00:11:22:33:44:03 mon3
 
 3. -a <> - bssid;
 
-4. -Z 4 - WPA2 | z 2 - WPA | -w <> - WEP | Без флага - открытая сеть;
+4. -Z 4 - WPA2 | -z 2 - WPA | -w <> - WEP | Без флага - открытая сеть;
 
 ***

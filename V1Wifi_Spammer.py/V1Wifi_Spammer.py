@@ -41,7 +41,8 @@ for i in range(num):
         "-e", namestr,
         "-c", chstr,
         "-a", macstr,
-        monstr
+        monstr,
+        '-z', "2"
     ]
 
     ch += 1
